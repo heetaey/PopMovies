@@ -1,9 +1,14 @@
 package com.example.heetae.popmovies;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,10 +18,11 @@ import com.squareup.picasso.Picasso;
  * Created by hsMacbook on 2017. 8. 29..
  */
 
-public class MovieDetailActivity extends AppCompatActivity{
+public class MovieDetailActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String EXTRA_MOVIE = "movie";
 
     private Movie mMovie;
+    FloatingActionButton floatingAction;
     ImageView backdrop;
     ImageView poster;
     TextView title;
@@ -40,6 +46,8 @@ public class MovieDetailActivity extends AppCompatActivity{
         title = (TextView) findViewById(R.id.movie_title);
         description = (TextView) findViewById(R.id.movie_description);
         poster = (ImageView) findViewById(R.id.movie_poster);
+        floatingAction = (FloatingActionButton) findViewById(R.id.fab);
+        floatingAction.setOnClickListener(this);
 
         title.setText(mMovie.getTitle());
         description.setText(mMovie.getDescription());
@@ -49,5 +57,14 @@ public class MovieDetailActivity extends AppCompatActivity{
         Picasso.with(this)
                 .load(mMovie.getBackdrop())
                 .into(backdrop);
+    }
+
+    //To redirect to the movie page
+    @Override
+    public void onClick (View v) {
+        String url = "market://details?id=<package_name>";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 }

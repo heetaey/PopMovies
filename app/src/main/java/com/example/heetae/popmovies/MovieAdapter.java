@@ -59,7 +59,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MainActivity.MovieViewHol
     {
         this.mMovieList.clear();
         this.mMovieList.addAll(movieList);
-        // The adapter needs to know that the data has changed. If we don't call this, app will crash.
         notifyDataSetChanged();
     }
 }

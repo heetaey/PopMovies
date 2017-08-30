@@ -1,24 +1,11 @@
 package com.example.heetae.popmovies;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-
-import android.view.LayoutInflater;
 import android.view.View;
-
-import android.view.ViewGroup;
 import android.widget.ImageView;
-
-
-import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RequestInterceptor;
@@ -34,8 +21,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
@@ -49,14 +34,6 @@ public class MainActivity extends AppCompatActivity {
         public MovieViewHolder (View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
-        }
-    }
-
-    public static class MovieResult {
-        private List<Movie> results;
-
-        public List<Movie> getResults() {
-            return results;
         }
     }
 

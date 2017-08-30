@@ -10,7 +10,7 @@ import java.util.List;
  * Created by hsMacbook on 2017. 8. 29..
  */
 
-public class Movie implements Parcelable {
+public class Movie implements Parcelable{
     private String title;
     @SerializedName("poster_path")
     private String poster;
@@ -18,6 +18,8 @@ public class Movie implements Parcelable {
     private String description;
     @SerializedName("backdrop_path")
     private String backdrop;
+    @SerializedName("video")
+    private boolean video;
 
     protected Movie(Parcel in){
         title = in.readString();
@@ -71,6 +73,14 @@ public class Movie implements Parcelable {
         this.backdrop = backdrop;
     }
 
+    public boolean isVideo() {
+        return video;
+    }
+
+    public void setVideo(boolean video) {
+        this.video = video;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -86,7 +96,6 @@ public class Movie implements Parcelable {
 
     public static class MovieResult {
         private List<Movie> results;
-
         public List<Movie> getResults() {
             return results;
         }
