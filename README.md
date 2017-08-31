@@ -11,10 +11,6 @@
 ![Detail](https://github.com/heetaey/PopMovies/blob/master/images/detail1.png)
 ![Detail](https://github.com/heetaey/PopMovies/blob/master/images/detail2.png)
 
-## Credits
-- ![d3-cloud](https://github.com/jasondavies/d3-cloud) 
-- ![alhazmy13](https://github.com/alhazmy13/AndroidWordCloud)
-
 ## Possible Feature addtion
 - In detail page, I may use floatingActionbar as a way to link to the movie detail page
 - Search options
