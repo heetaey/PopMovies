@@ -1,6 +1,4 @@
 ## PopMovies
-
-## Overview
  - PopMovies is an application that uses ![TMDB](https://www.themoviedb.org/?language=en)'s Api.
  - Application consumes REST API using retrofit and displays images using Picasso.
  - Retrofit will help to convert REST API into Java interface.
