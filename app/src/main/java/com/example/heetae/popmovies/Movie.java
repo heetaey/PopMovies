@@ -18,14 +18,18 @@ public class Movie implements Parcelable{
     private String description;
     @SerializedName("backdrop_path")
     private String backdrop;
-    @SerializedName("video")
-    private boolean video;
+    @SerializedName("vote_average")
+    private String rating;
+    @SerializedName("release_date")
+    private String releaseDate;
 
     protected Movie(Parcel in){
         title = in.readString();
         poster = in.readString();
         description = in.readString();
         backdrop = in.readString();
+        rating = in.readString();
+        releaseDate = in.readString();
     }
 
     public static final Parcelable.Creator<Movie> CREATOR
@@ -73,13 +77,22 @@ public class Movie implements Parcelable{
         this.backdrop = backdrop;
     }
 
-    public boolean isVideo() {
-        return video;
+    public String getRating() {
+        return "Ratings: " + rating;
     }
 
-    public void setVideo(boolean video) {
-        this.video = video;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
+
+    public String getReleaseDate() {
+        return "Release date: " + releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
 
     @Override
     public int describeContents() {
@@ -92,6 +105,8 @@ public class Movie implements Parcelable{
         parcel.writeString(poster);
         parcel.writeString(description);
         parcel.writeString(backdrop);
+        parcel.writeString(rating);
+        parcel.writeString(releaseDate);
     }
 
     public static class MovieResult {

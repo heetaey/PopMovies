@@ -51,8 +51,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MainActivity.MovieViewHol
     @Override
     public int getItemCount()
     {
-        return (mMovieList == null)
-                ? 0 : mMovieList.size();
+        if (mMovieList == null)
+            return 0;
+        else
+             return mMovieList.size();
     }
 
     public void setMovieList(List<Movie> movieList)

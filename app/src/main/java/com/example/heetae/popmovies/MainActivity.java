@@ -46,9 +46,10 @@ public class MainActivity extends AppCompatActivity {
                         request.addEncodedQueryParam("api_key", "3b5b4d5a4aa64167082ab7e0a0717df0");
                     }
                 })
-                .setLogLevel(RestAdapter.LogLevel.FULL)
+                .setLogLevel(RestAdapter.LogLevel.NONE)
                 .build();
         API service = restAdapter.create(API.class);
+
         service.getPopularMovies(new Callback<Movie.MovieResult>() {
             @Override
             public void success(Movie.MovieResult movieResult, Response response) {

@@ -27,6 +27,8 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
     ImageView poster;
     TextView title;
     TextView description;
+    TextView ratings;
+    TextView releaseDate;
 
     @Override
     protected void onCreate(Bundle savedInstances) {
@@ -46,11 +48,17 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
         title = (TextView) findViewById(R.id.movie_title);
         description = (TextView) findViewById(R.id.movie_description);
         poster = (ImageView) findViewById(R.id.movie_poster);
-        floatingAction = (FloatingActionButton) findViewById(R.id.fab);
-        floatingAction.setOnClickListener(this);
+        ratings = (TextView) findViewById(R.id.movie_ratings);
+        releaseDate = (TextView) findViewById(R.id.movie_release);
+
+        //Button not being used for now.
+//        floatingAction = (FloatingActionButton) findViewById(R.id.fab);
+//        floatingAction.setOnClickListener(this);
 
         title.setText(mMovie.getTitle());
         description.setText(mMovie.getDescription());
+        ratings.setText(mMovie.getRating());
+        releaseDate.setText(mMovie.getReleaseDate());
         Picasso.with(this)
                 .load(mMovie.getPoster())
                 .into(poster);
